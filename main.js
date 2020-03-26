@@ -201,6 +201,12 @@ function build_updates_list(data_object) {
     }
 }
 
+function scroll_to_update_feed() {
+    let update_feed_heading = document.getElementById('update_feed_heading');
+    update_feed_heading.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+
+// Classes and functions for manipulating statistics
 function latest_data_in_depth(data_object) {
     let updates_data = data_object["sheets"]["updates"];
     

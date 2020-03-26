@@ -15,15 +15,23 @@
     <div id="wrapper">
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
-                <h1 class="text-center" style="color: rgb(0,0,0);font-size: 50px;margin: 20px;">COVID-19 Live Updates</h1>
+                <h1 class="text-center" style="color: rgb(0,0,0);font-size: 50px;margin: 20px;">COVID-19 Live Updates Australia</h1>
+                <div class="col text-center">
+                    
+                    <button class="btn btn-primary" type="button" style="margin-left: 5px;margin-right: 5px;margin-top: 5px;margin-bottom: 5px;" onclick="scroll_to_update_feed()">Update Feed</button>
+                    
+                    <!-- <button class="btn btn-primary" type="button" style="margin-left: 5px;margin-right: 5px;margin-top: 5px;margin-bottom: 5px;">Graphs + Charts</button>
+                    
+                    <button
+                    class="btn btn-primary" type="button" style="margin-left: 5px;margin-right: 5px;margin-top: 5px;margin-bottom: 5px;">World Stats</button> -->
+                </div>
                 <div id="national_data"></div>
                 <div class="container-fluid" id="update_container">
-                    <div class="row" id="states_row">
-                        
+                    <div class="row" id="states_row">    
                     </div>
                     <div class="row">
                         <div class="col">
-                            <h1 class="text-center" style="color: rgb(0,0,0);">UPDATE FEED</h1>
+                            <h1 id='update_feed_heading' class="text-center" style="color: rgb(0,0,0);">UPDATE FEED</h1>
                         </div>
                     </div>
                     <div class="row">
