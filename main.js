@@ -166,7 +166,7 @@ function build_updates_list(data_object) {
         let investigation = update["Under investigation"];
         let notes = update["Notes"];
 
-        let key_list = ["State", "Date", "Time", "Cumulative case count", "Cumulative deaths", "Tests conducted (negative)", "Tests conducted (total)", "Intensive care (count)", "Hospitalisations (count)", "Recovered (cumulative)", "Update Source", "Under 60", "Community", "Travel-related", "Under investigation", "Notes"]
+        let key_list = ["Cumulative case count", "Cumulative deaths", "Tests conducted (negative)", "Tests conducted (total)", "Intensive care (count)", "Hospitalisations (count)", "Recovered (cumulative)", "Update Source", "Under 60", "Community", "Travel-related", "Under investigation", "Notes"]
         let val_list = Array(key_list.length);
         for (let i = 0; i < key_list.length; i++) {
             val_list[i] = update[key_list[i]]
@@ -179,7 +179,7 @@ function build_updates_list(data_object) {
         let card = $('<div class="card" style="margin-top: 10px;margin-bottom: 10px;"></div>');
         let card_body = $('<div class="card-body"></div>')
         
-        let card_title = $('<h4 class="card-title" style="color: rgb(0,0,0);">' + state + '</h4>');
+        let card_title = $('<h4 class="card-title" style="color: rgb(0,0,0);">' + state + ' ' + time + ' ' + date + '</h4>');
         
         let elements_to_append = []
         for (let i = 0; i < val_list.length; i++) {
@@ -201,8 +201,24 @@ function build_updates_list(data_object) {
     }
 }
 
-             
-                                
+function latest_data_in_depth(data_object) {
+    let updates_data = data_object["sheets"]["updates"];
+    
+}
+
+class latest_stats {
+    constructor(updates_data) {
+        this._updates_data = updates_data;
+    }
+    
+    
+}
+
+class state_stats {
+    constructor(state) {
+        this._state = state;
+    }
+}
                                     
                                         
                                             
