@@ -45,26 +45,47 @@ function update_national_data(data_object) {
     let national_population = data_object["sheets"]["data validation"][8]["Population"];
     
     // Get individual data values
-    let confirmed = national_data["Confirmed cases (cumulative)"]
-    let deaths = national_data["Deaths"]
+    let confirmed_val = national_data["Confirmed cases (cumulative)"]
+    let deaths_val = national_data["Deaths"]
     let tests_total = national_data["Tests conducted"]
     let tests_per_mil = national_data["Tests per million"]
     let update_time = national_data["Last updated"]
     
-    // Get UI elements
-    let confirmed_label = document.getElementById("national_confirmed")
-    let deaths_label = document.getElementById("national_deaths")
-    let tests_label = document.getElementById("national_tests")
-    let per_mil_label = document.getElementById("national_per_mil")
-    let population_label = document.getElementById("national_population")
+    // Build national card using jquery
+    let card = $('<div class="card shadow py-2" style="margin: 20px;"></div>');
+    let card_body = $('<div class="card-body"></div>');
+    let card_row = $('<div class="row align-items-center no-gutters"></div>');
+    let card_col = $('<div class="col mr-2"></div>');
     
-    // Put data in UI
-    confirmed_label.innerHTML = "Confirmed Cases: " + confirmed;
-    deaths_label.innerHTML = "Total deaths: " + deaths;
-    tests_label.innerHTML = "Tests Conducted: " + tests_total;
-    per_mil_label.innerHTML = "Tests Per Million: " + tests_per_mil;
-    population_label.innerHTML = "Total Population: " + national_population;
+    let card_title = $('<div class="text-uppercase text-center text-primary font-weight-bold text-xs mb-1"><span class="text-left" style="font-size: 35px;color: rgb(0,0,0);font-family: Nunito, sans-serif;">NATIONAL</span></div>');
+    let confirmed = $('<div class="text-center text-dark font-weight-bold h5 mb-0"><span style="font-size: 16px;" id="national_confirmed">Confirmed Cases: ' + confirmed_val + '</span></div>');
+    let deaths = $('<div class="text-center text-dark font-weight-bold h5 mb-0"><span style="font-size: 16px;" id="national_deaths">Deaths: ' + deaths_val + '</span></div>');
+    let tests = $('<div class="text-center text-dark font-weight-bold h5 mb-0"><span style="font-size: 16px;" id="national_tests">Tests Conducted: ' + tests_total + '</span></div>');
+    let per_mil = $('<div class="text-center text-dark font-weight-bold h5 mb-0"><span style="font-size: 16px;" id="national_per_mil">Tests per million: ' + tests_per_mil + '</span></div>');
+    let population = $('<div class="text-center text-dark font-weight-bold h5 mb-0"><span style="font-size: 16px;" id="national_population">Total population: ' + national_population + '</span></div>');
+                        
+    // Append jquery elements
+    card_col.append(card_title);
+    card_col.append(confirmed);
+    card_col.append(deaths);
+    card_col.append(tests);
+    card_col.append(per_mil);
+    card_col.append(population);
     
+    card_row.append(card_col);
+    card_body.append(card_row);
+    card.append(card_body)
+    
+    // Append to page
+    $('#national_data').append(card);
+                                
+}
+
+function list_append_jquery(parent_element, element_list) {
+    for (let i = element_list.length; i < element_list.length; i++) {
+        parent_element.append(element_list);
+    }
+    return parent_element
 }
 
 function zero_data_check(data_object, key) {
@@ -177,11 +198,10 @@ function build_updates_list(data_object) {
         card_col.append(card);
         card_row.append(card_col);
         $('#update_container').append(card_row);
-        console.log("Hello")
     }
 }
 
-                            
+             
                                 
                                     
                                         
